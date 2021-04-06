@@ -142,7 +142,7 @@ namespace DAL
 
             try
             {
-                dr = this.selectDataTable("book", " WHERE BookName LIKE N'%" + keywordSearch + "%'");
+                dr = this.selectDataTable("book", " WHERE BookName LIKE N'%" + keywordSearch + "%' OR BookName LIKE '%" + keywordSearch + "%'");
                 while (dr.Read())
                 {
                     book b = new book();

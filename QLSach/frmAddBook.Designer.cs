@@ -326,6 +326,7 @@
             this.Controls.Add(this.lbl_price);
             this.Controls.Add(this.lbl_bookName);
             this.Name = "frmAddBook";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "THÊM MỚI SÁCH";
             this.Load += new System.EventHandler(this.frmAddBook_Load);
             this.ResumeLayout(false);

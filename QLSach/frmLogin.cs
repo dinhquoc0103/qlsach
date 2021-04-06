@@ -38,7 +38,7 @@ namespace QLSach
 
         private void btn_login_Click_1(object sender, EventArgs e)
         {
-            string username = txt_username.Text;
+            string username = txt_email.Text;
             string password = txt_password.Text;
 
 
