@@ -46,6 +46,7 @@
             this.tb_infoAccount = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.btn_showAll = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tctrl_manager.SuspendLayout();
             this.tp_book.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listBooks)).BeginInit();
@@ -70,6 +71,7 @@
             // tp_book
             // 
             this.tp_book.BackColor = System.Drawing.Color.White;
+            this.tp_book.Controls.Add(this.btn_showAll);
             this.tp_book.Controls.Add(this.btn_search);
             this.tp_book.Controls.Add(this.lbl_filter);
             this.tp_book.Controls.Add(this.txt_search);
@@ -104,6 +106,7 @@
             this.btn_search.TabIndex = 9;
             this.btn_search.Text = "Tìm Kiếm";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // lbl_filter
             // 
@@ -194,6 +197,7 @@
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
@@ -274,9 +278,28 @@
             this.materialTabSelector1.Location = new System.Drawing.Point(0, 21);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(878, 45);
+            this.materialTabSelector1.Size = new System.Drawing.Size(962, 45);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
+            this.materialTabSelector1.Click += new System.EventHandler(this.materialTabSelector1_Click);
+            // 
+            // btn_showAll
+            // 
+            this.btn_showAll.AutoSize = true;
+            this.btn_showAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_showAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_showAll.Depth = 0;
+            this.btn_showAll.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_showAll.Icon = null;
+            this.btn_showAll.Location = new System.Drawing.Point(530, 11);
+            this.btn_showAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_showAll.Name = "btn_showAll";
+            this.btn_showAll.Primary = true;
+            this.btn_showAll.Size = new System.Drawing.Size(128, 36);
+            this.btn_showAll.TabIndex = 10;
+            this.btn_showAll.Text = "Hiển Thị Tất Cả";
+            this.btn_showAll.UseVisualStyleBackColor = true;
+            this.btn_showAll.Click += new System.EventHandler(this.btn_showAll_Click);
             // 
             // frmManager
             // 
@@ -317,5 +340,6 @@
         private System.Windows.Forms.Label lbl_filter;
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_search;
         private MaterialSkin.Controls.MaterialRaisedButton btn_search;
+        private MaterialSkin.Controls.MaterialRaisedButton btn_showAll;
     }
 }

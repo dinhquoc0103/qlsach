@@ -31,33 +31,15 @@ namespace QLSach
 
         }
 
-        //private void LoadListBook()
-        //{
-        //    // Câu query
-        //    string sql = "SELECT * FROM book";
-
-        //    // Nhận về dữ liệu table theo truy vấn từ câu query thông qua hàm getDataToTable
-        //    tableBook = Functions.getDataToTable(sql, DatabaseConnection.connect);
-
-        //    // đổi tên cột sang tiếng việt
-        //    string[] arrColName = { "Mã Sách", "Tên Sách" , "Giá" , "Thể Loại" , "Tác Giả" , "Nhà Xuất Bản" };
-        //    for (int i = 0; i < arrColName.Length; i++)
-        //    {
-        //        tableBook.Columns[i].ColumnName = arrColName[i];
-        //    }
-        //    //tableBook.Columns[0].ColumnName = "Mã Sách";   
-        //    //tableBook.Columns[1].ColumnName = "Tên Sách";    
-        //    //tableBook.Columns[2].ColumnName = "Giá";    
-        //    //tableBook.Columns[3].ColumnName = "Thể Loại";   
-        //    //tableBook.Columns[4].ColumnName = "Tác Giả";    
-        //    //tableBook.Columns[5].ColumnName = "Nhà Xuất Bản";    
-
-        //    // Hiển thị dữ liệu lên dataGridView
-        //    dvg_listBooks.DataSource = tableBook;
-        //}
 
         private void frmManager_Load(object sender, EventArgs e)
         {
+            loadListBooks();
+        }
+
+        private void loadListBooks()
+        {
+            dgv_listBooks.DataSource = null;
             // Load list book lên dataGridView
             var listBooks = busBook.getListBooks();
             dgv_listBooks.DataSource = listBooks;
@@ -68,8 +50,6 @@ namespace QLSach
             {
                 dgv_listBooks.Columns[i].HeaderText = arrColName[i];
             }
-           
-
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -77,7 +57,7 @@ namespace QLSach
             string bookCode = "";
             frmAddBook addBook = new frmAddBook(bookCode);
             addBook.ShowDialog();
-
+            loadListBooks(); // load lại danh sách
         }
 
         private void tp_book_Click(object sender, EventArgs e)
@@ -102,6 +82,61 @@ namespace QLSach
             string bookCode = dgv_listBooks.CurrentRow.Cells["bookCode"].Value.ToString(); // Lấy ra giá trị bookCode từ vị trí của dòng khi click vào một ô của dòng đó
             frmAddBook addBook = new frmAddBook(bookCode);
             addBook.ShowDialog();
+            loadListBooks();    // load lại danh sách
+
+        }
+
+        private void materialTabSelector1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+           
+            string bookCode = dgv_listBooks.CurrentRow.Cells["bookCode"].Value.ToString();
+            string bookName = dgv_listBooks.CurrentRow.Cells["bookName"].Value.ToString();
+
+            // Thông báo messagebox trước hỏi có muốn xóa không
+            var choose = MessageBox.Show("Bạn muốn xóa quyển " + bookName + "?", "XÓA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(choose == DialogResult.Yes)
+            {
+                // Hàm xóa book trả về true có nghĩa là đã xóa thành công
+                if (busBook.deleteBook(bookCode) == true)
+                {
+                    MessageBox.Show("Xóa thành công quyển " + bookName, "Thành Công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadListBooks(); // load lại danh sách
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại", "Thất Bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string keywordSearch = txt_search.Text.Trim();
+            if (string.IsNullOrEmpty(keywordSearch))
+            {
+                MessageBox.Show("Bạn chưa nhập từ khóa để tìm kiếm", "Chú Ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(keywordSearch.Length < 2)
+            {
+                MessageBox.Show("Từ khóa tìm kiếm phải từ 2 kí tự trở lên", "Chú Ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                dgv_listBooks.DataSource = busBook.getListBookSearch(keywordSearch);
+            }      
+        }
+
+        private void btn_showAll_Click(object sender, EventArgs e)
+        {
+            txt_search.Clear();
+            dgv_listBooks.DataSource = busBook.getListBooks();
         }
     }
 }

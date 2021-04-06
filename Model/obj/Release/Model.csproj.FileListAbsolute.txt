@@ -4,3 +4,9 @@ C:\Users\user\source\repos\Model\obj\Release\Model.csprojAssemblyReference.cache
 C:\Users\user\source\repos\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\Model\obj\Release\Model.dll
 C:\Users\user\source\repos\Model\obj\Release\Model.pdb
+C:\Users\user\source\repos\qlisach\Model\bin\Release\Model.dll
+C:\Users\user\source\repos\qlisach\Model\bin\Release\Model.pdb
+C:\Users\user\source\repos\qlisach\Model\obj\Release\Model.csprojAssemblyReference.cache
+C:\Users\user\source\repos\qlisach\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\qlisach\Model\obj\Release\Model.dll
+C:\Users\user\source\repos\qlisach\Model\obj\Release\Model.pdb

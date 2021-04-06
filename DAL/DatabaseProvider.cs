@@ -13,7 +13,7 @@ namespace DAL
         /// <summary>
         /// Các thuộc tính
         /// </summary>
-        private string strConnect = @"Data Source=SM96\SORIMACHI2012;Initial Catalog=QLSach;Integrated Security=True";
+        private string strConnect = @"Data Source=SM96\SORIMACHI2012;Initial Catalog=QLSach;Integrated Security=True;MultipleActiveResultSets=True";
         public SqlConnection connect = null;    // Đối tượng dùng để connect đến database
         public SqlCommand cmd = null;           // Đối tượng dùng để thao tác với database
         public SqlDataReader dr = null;         // Đối tượng hứng dữ liệu và giúp đọc từng dòng dữ liệu trả về
@@ -71,11 +71,11 @@ namespace DAL
         /// </summary>
         /// <param name="table">tên table truyền vào</param>
         /// <returns>trả về đối tượng SqlDataReader chứa dữ liệu và giúp đọc dữ liệu từng dòng trả về</returns>
-        public SqlDataReader selectDataTable(string table)
+        public SqlDataReader selectDataTable(string table, string where = "")
         {
             try
             {
-                string sql = "SELECT * FROM " + table;
+                string sql = "SELECT * FROM " + table + where;
                 cmd = new SqlCommand(sql);  // Tạo đối tượng SqlCommand và truyền vào câu sql
                 cmd.Connection = connect;   // Gán connect cho đối tượng SqlCommand
                 this.openConnect();         // Mở kết nối
@@ -86,6 +86,25 @@ namespace DAL
                 throw error;
             }
             return dr;
+        }
+
+        /// <summary>
+        /// Truy vấn cho insert hoặc update
+        /// </summary>
+        /// <param name="sql"></param>
+        public void ExeCuteNonQuery(string sql)
+        {
+            try
+            {
+                cmd = new SqlCommand(sql);
+                cmd.Connection = connect;
+                this.openConnect();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception error)
+            {
+                throw error;
+            }
         }
 
 

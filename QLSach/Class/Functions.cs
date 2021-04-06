@@ -44,19 +44,18 @@ namespace QLSach.Class
             //);
         }
 
-        // Lấy dữ liệu từ database đổ vào đối tượng DataTable
-        public static DataTable getDataToTable(string sql, SqlConnection connect)
+        /// <summary>
+        /// Tạo một chuỗi random
+        /// </summary>
+        /// <param name="length">độ dài chuỗi random muốn nhận về</param>
+        /// <returns>một chuỗi ngẫu nhiên có độ dài như tham số length truyền vào</returns>
+        public static string randomString(int length)
         {
-            command = new SqlCommand();         // Tạo đối tượng command thao tác với db
-            command.Connection = connect;       // command này thực hiện truy vấn với kết nối là connect
-            command.CommandText = sql;          // gán câu lệnh sql
-            adapter = new SqlDataAdapter();     // Tạo đối tượng adapter
-            adapter.SelectCommand = command;    // gán đối tượng command
+            
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-            table = new DataTable();
-            adapter.Fill(table);                // Khi Fill này chạy thì adapter.Selectcommand sẽ thực hiện truy vấn và đấp dữ liệu trả về vào table
-
-            return table;
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

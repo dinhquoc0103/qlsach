@@ -9,3 +9,14 @@ C:\Users\user\source\repos\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\BUS\obj\Debug\BUS.csproj.CopyComplete
 C:\Users\user\source\repos\BUS\obj\Debug\BUS.dll
 C:\Users\user\source\repos\BUS\obj\Debug\BUS.pdb
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\BUS.dll
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\BUS.pdb
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\DAL.dll
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\Model.dll
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\DAL.pdb
+C:\Users\user\source\repos\qlisach\BUS\bin\Debug\Model.pdb
+C:\Users\user\source\repos\qlisach\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
+C:\Users\user\source\repos\qlisach\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\qlisach\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\user\source\repos\qlisach\BUS\obj\Debug\BUS.dll
+C:\Users\user\source\repos\qlisach\BUS\obj\Debug\BUS.pdb
