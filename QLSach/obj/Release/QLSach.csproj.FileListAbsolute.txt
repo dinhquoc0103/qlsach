@@ -1,0 +1,12 @@
+C:\Users\user\source\repos\QLSach\bin\Release\QLSach.exe.config
+C:\Users\user\source\repos\QLSach\bin\Release\QLSach.exe
+C:\Users\user\source\repos\QLSach\bin\Release\QLSach.pdb
+C:\Users\user\source\repos\QLSach\bin\Release\MaterialSkin.dll
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.frmLogin.resources
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.frmManager.resources
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.Properties.Resources.resources
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.csproj.GenerateResource.cache
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.csproj.CopyComplete
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.exe
+C:\Users\user\source\repos\QLSach\obj\Release\QLSach.pdb
