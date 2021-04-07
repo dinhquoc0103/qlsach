@@ -37,9 +37,7 @@ namespace DAL
                     b.PublishingBy = dr.GetString(5);
 
                     // Thêm đối tượng book vào danh sách book
-                    listBooks.Add(b);
-
-                    
+                    listBooks.Add(b);                    
                 }
             }
             catch (Exception error)
@@ -119,6 +117,10 @@ namespace DAL
             return flag;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public DataTable listBooksDT()
         {
             DataTable dt = new DataTable();
@@ -135,6 +137,12 @@ namespace DAL
             return dt;
         }
 
+
+        /// <summary>
+        /// list book truy vấn theo từ khóa search
+        /// </summary>
+        /// <param name="keywordSearch">từ khóa tìm kiếm</param>
+        /// <returns>Trả về một list book có name gần giống với từ khóa tìm kiếm</returns>
         public List<book> listBookSearch(string keywordSearch)
         {
             SqlDataReader dr = null;

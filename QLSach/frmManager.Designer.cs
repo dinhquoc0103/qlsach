@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManager));
             this.tctrl_manager = new MaterialSkin.Controls.MaterialTabControl();
             this.tp_book = new System.Windows.Forms.TabPage();
+            this.btn_showAll = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btn_search = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbl_filter = new System.Windows.Forms.Label();
             this.txt_search = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -43,21 +44,24 @@
             this.dgv_listBooks = new System.Windows.Forms.DataGridView();
             this.tp_category = new System.Windows.Forms.TabPage();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.tb_infoAccount = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.btn_showAll = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lbl_hello = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tctrl_manager.SuspendLayout();
             this.tp_book.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listBooks)).BeginInit();
             this.tp_category.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tctrl_manager
             // 
             this.tctrl_manager.Controls.Add(this.tp_book);
             this.tctrl_manager.Controls.Add(this.tp_category);
-            this.tctrl_manager.Controls.Add(this.tb_infoAccount);
             this.tctrl_manager.Depth = 0;
             this.tctrl_manager.Font = new System.Drawing.Font("Roboto Cn", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tctrl_manager.ImageList = this.imageList1;
@@ -71,8 +75,10 @@
             // tp_book
             // 
             this.tp_book.BackColor = System.Drawing.Color.White;
+            this.tp_book.Controls.Add(this.lbl_hello);
             this.tp_book.Controls.Add(this.btn_showAll);
             this.tp_book.Controls.Add(this.btn_search);
+            this.tp_book.Controls.Add(this.menuStrip1);
             this.tp_book.Controls.Add(this.lbl_filter);
             this.tp_book.Controls.Add(this.txt_search);
             this.tp_book.Controls.Add(this.lbl_manipulation);
@@ -89,6 +95,24 @@
             this.tp_book.TabIndex = 0;
             this.tp_book.Text = "Sách";
             this.tp_book.Click += new System.EventHandler(this.tp_book_Click);
+            // 
+            // btn_showAll
+            // 
+            this.btn_showAll.AutoSize = true;
+            this.btn_showAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_showAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_showAll.Depth = 0;
+            this.btn_showAll.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_showAll.Icon = null;
+            this.btn_showAll.Location = new System.Drawing.Point(530, 11);
+            this.btn_showAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn_showAll.Name = "btn_showAll";
+            this.btn_showAll.Primary = true;
+            this.btn_showAll.Size = new System.Drawing.Size(128, 36);
+            this.btn_showAll.TabIndex = 10;
+            this.btn_showAll.Text = "Hiển Thị Tất Cả";
+            this.btn_showAll.UseVisualStyleBackColor = true;
+            this.btn_showAll.Click += new System.EventHandler(this.btn_showAll_Click);
             // 
             // btn_search
             // 
@@ -252,16 +276,6 @@
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "ahhahaaha";
             // 
-            // tb_infoAccount
-            // 
-            this.tb_infoAccount.BackColor = System.Drawing.Color.White;
-            this.tb_infoAccount.ImageKey = "icons8-information-24.png";
-            this.tb_infoAccount.Location = new System.Drawing.Point(4, 32);
-            this.tb_infoAccount.Name = "tb_infoAccount";
-            this.tb_infoAccount.Size = new System.Drawing.Size(948, 542);
-            this.tb_infoAccount.TabIndex = 2;
-            this.tb_infoAccount.Text = "Thông Tin Tài Khoản";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -283,23 +297,59 @@
             this.materialTabSelector1.Text = "materialTabSelector1";
             this.materialTabSelector1.Click += new System.EventHandler(this.materialTabSelector1_Click);
             // 
-            // btn_showAll
+            // lbl_hello
             // 
-            this.btn_showAll.AutoSize = true;
-            this.btn_showAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_showAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_showAll.Depth = 0;
-            this.btn_showAll.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_showAll.Icon = null;
-            this.btn_showAll.Location = new System.Drawing.Point(530, 11);
-            this.btn_showAll.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_showAll.Name = "btn_showAll";
-            this.btn_showAll.Primary = true;
-            this.btn_showAll.Size = new System.Drawing.Size(128, 36);
-            this.btn_showAll.TabIndex = 10;
-            this.btn_showAll.Text = "Hiển Thị Tất Cả";
-            this.btn_showAll.UseVisualStyleBackColor = true;
-            this.btn_showAll.Click += new System.EventHandler(this.btn_showAll_Click);
+            this.lbl_hello.AutoSize = true;
+            this.lbl_hello.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_hello.Font = new System.Drawing.Font("Roboto Cn", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_hello.ForeColor = System.Drawing.Color.Black;
+            this.lbl_hello.Location = new System.Drawing.Point(696, 14);
+            this.lbl_hello.Name = "lbl_hello";
+            this.lbl_hello.Size = new System.Drawing.Size(100, 29);
+            this.lbl_hello.TabIndex = 0;
+            this.lbl_hello.Text = "Xin chào:";
+            this.lbl_hello.Click += new System.EventHandler(this.lbl_hello_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Font = new System.Drawing.Font("Roboto Cn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(781, 13);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(111, 33);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinTàiKhoảnToolStripMenuItem,
+            this.chỉnhSửaToolStripMenuItem});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Roboto Cn", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 29);
+            this.toolStripMenuItem1.Text = "FullName";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // thôngTinTàiKhoảnToolStripMenuItem
+            // 
+            this.thôngTinTàiKhoảnToolStripMenuItem.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông Tin Tài Khoản";
+            this.thôngTinTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
+            // 
+            // chỉnhSửaToolStripMenuItem
+            // 
+            this.chỉnhSửaToolStripMenuItem.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
+            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.chỉnhSửaToolStripMenuItem.Text = "Chỉnh Sửa";
             // 
             // frmManager
             // 
@@ -308,6 +358,7 @@
             this.ClientSize = new System.Drawing.Size(959, 633);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.tctrl_manager);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManager";
@@ -318,6 +369,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listBooks)).EndInit();
             this.tp_category.ResumeLayout(false);
             this.tp_category.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +380,6 @@
         private MaterialSkin.Controls.MaterialTabControl tctrl_manager;
         private System.Windows.Forms.TabPage tp_book;
         private System.Windows.Forms.TabPage tp_category;
-        private System.Windows.Forms.TabPage tb_infoAccount;
         private System.Windows.Forms.ImageList imageList1;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
@@ -341,5 +393,10 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txt_search;
         private MaterialSkin.Controls.MaterialRaisedButton btn_search;
         private MaterialSkin.Controls.MaterialRaisedButton btn_showAll;
+        private System.Windows.Forms.Label lbl_hello;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chỉnhSửaToolStripMenuItem;
     }
 }

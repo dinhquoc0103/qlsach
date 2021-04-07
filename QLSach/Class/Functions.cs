@@ -14,9 +14,9 @@ namespace QLSach.Class
 
     class Functions
     {
-        private static SqlCommand command;  // Tạo đối tượng SqlCommand thao tác với db
-        private static SqlDataAdapter adapter;  // Tạo SQLDataAdapter trung gian dữ liệu
-        private static DataTable table;         // Tạo đối tượng table để nhận dữ liệu về
+        //private static SqlCommand command;  // Tạo đối tượng SqlCommand thao tác với db
+        //private static SqlDataAdapter adapter;  // Tạo SQLDataAdapter trung gian dữ liệu
+        //private static DataTable table;         // Tạo đối tượng table để nhận dữ liệu về
 
         public static void customMaterialForm(MaterialForm form)
         {

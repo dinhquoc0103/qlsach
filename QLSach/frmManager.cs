@@ -18,7 +18,8 @@ namespace QLSach
     public partial class frmManager : MaterialForm
     {
         BUSbook busBook;
-        public frmManager()
+        users user;
+        public frmManager(users user)
         {
             InitializeComponent();
 
@@ -28,12 +29,17 @@ namespace QLSach
             // Tạo đối tượng bus book
             busBook = new BUSbook();
 
+            // Gán đối tượng user
+            this.user = user;
+
 
         }
 
 
         private void frmManager_Load(object sender, EventArgs e)
         {
+            toolStripMenuItem1.Text = this.user.FullName;
+
             loadListBooks();
         }
 
@@ -137,6 +143,22 @@ namespace QLSach
         {
             txt_search.Clear();
             dgv_listBooks.DataSource = busBook.getListBooks();
+        }
+
+        private void lbl_hello_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItem1.ForeColor = Color.Black;
+        }
+
+        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAccountInfo accountInfo = new frmAccountInfo(user);
+            accountInfo.ShowDialog();
         }
     }
 }
