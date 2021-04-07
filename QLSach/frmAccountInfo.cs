@@ -33,9 +33,7 @@ namespace QLSach
             lbl_value_fullname.Text = user.FullName;
             lbl_value_email.Text = user.Email;
             lbl_value_status.Text = "Hoạt động";
-            lbl_value_joinDate.Text = user.JoinDate.ToString();
-           
-            
+            lbl_value_joinDate.Text = user.JoinDate.ToString("dd/MM/yyyy");     
         }
 
         private void label1_Click(object sender, EventArgs e)

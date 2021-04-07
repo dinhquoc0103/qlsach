@@ -160,5 +160,22 @@ namespace QLSach
             frmAccountInfo accountInfo = new frmAccountInfo(user);
             accountInfo.ShowDialog();
         }
+
+     
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //frmLogin formLogin = new frmLogin();
+            //formLogin.Show();
+            this.Close();
+
+        }
+
+        private void tsmitem_changePassword_Click(object sender, EventArgs e)
+        {
+            frmChangePassword changePass = new frmChangePassword(user);
+            changePass.ShowDialog();
+        }
     }
 }

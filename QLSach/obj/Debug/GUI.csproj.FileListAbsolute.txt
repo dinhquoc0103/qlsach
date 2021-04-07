@@ -39,3 +39,4 @@ C:\Users\user\source\repos\qlisach\QLSach\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\user\source\repos\qlisach\QLSach\obj\Debug\QLSach.exe
 C:\Users\user\source\repos\qlisach\QLSach\obj\Debug\QLSach.pdb
 C:\Users\user\source\repos\qlisach\QLSach\obj\Debug\QLSach.frmAccountInfo.resources
+C:\Users\user\source\repos\qlisach\QLSach\obj\Debug\QLSach.frmChangePassword.resources

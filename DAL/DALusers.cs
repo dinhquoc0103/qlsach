@@ -50,5 +50,26 @@ namespace DAL
 
             return user;
         }
+
+        public bool updateRowUser(users user, string valueUpdate = null, string options = null)
+        {
+            bool flag = false;
+            if(options == "changePassword")
+            {
+                try
+                {
+                    string sql = "UPDATE users SET Password = '" + valueUpdate + "' WHERE UserCode = '" + user.UserCode + "'";
+                    this.ExeCuteNonQuery(sql);
+                    flag = true;
+                }
+                catch (Exception error)
+                {
+                    throw error;
+                }
+            }
+
+            return flag;
+            
+        }
     }
 }

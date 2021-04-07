@@ -33,5 +33,11 @@ namespace BUS
             users user = dalUsers.singleSelectRowUser(email, password);
             return user;
         }
+        
+        public bool changePassword(users user, string newPassword)
+        {
+            bool result = dalUsers.updateRowUser(user, newPassword, "changePassword");
+            return result;
+        }
     }
 }

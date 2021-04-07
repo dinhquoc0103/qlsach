@@ -19,6 +19,7 @@ namespace QLSach
     public partial class frmLogin : MaterialForm
     {
         BUSusers busUsers;
+      
         public frmLogin()
         {
             InitializeComponent();
@@ -53,36 +54,51 @@ namespace QLSach
             user.Email = txt_email.Text.Trim();
             user.Password = txt_password.Text.Trim();
 
-            // Bắt đầu validate
-            ValidationContext context = new ValidationContext(user);
-            var validationResult = new List<ValidationResult>();
+            //// Bắt đầu validate
+            //ValidationContext context = new ValidationContext(user);
+            //var validationResult = new List<ValidationResult>();
 
-            bool valid = Validator.TryValidateObject(user, context, validationResult, true);
+            //bool valid = Validator.TryValidateObject(user, context, validationResult, true);
 
-            // Nếu có lỗi
-            if(valid == false)
+            //// Nếu có lỗi
+            //if(valid == false)
+            //{
+            //    // Vòng lặp in lỗi lên lbl
+            //    foreach (ValidationResult r in validationResult)
+            //    {
+            //        // Tạo controlName bằng string
+            //        string controlName = "lbl_error_" + r.MemberNames.First();
+            //        // Tìm control thông qua key string và gán messError và thay đổi màu cho label error
+            //        this.Controls.Find(controlName, true)[0].Text = r.ErrorMessage;
+            //        this.Controls.Find(controlName, true)[0].ForeColor = Color.Red;
+            //    }
+            //}
+            //else
+            //{   
+
+            bool checkEmptyEmail = string.IsNullOrEmpty(txt_email.Text.Trim());
+            bool checkEmptyPass = string.IsNullOrEmpty(txt_password.Text.Trim());
+
+            if (checkEmptyEmail == true)
             {
-                // Vòng lặp in lỗi lên lbl
-                foreach (ValidationResult r in validationResult)
-                {
-                    // Tạo controlName bằng string
-                    string controlName = "lbl_error_" + r.MemberNames.First();
-                    // Tìm control thông qua key string và gán messError và thay đổi màu cho label error
-                    this.Controls.Find(controlName, true)[0].Text = r.ErrorMessage;
-                    this.Controls.Find(controlName, true)[0].ForeColor = Color.Red;
-                }
+                lbl_error_email.Text = "Chưa nhập email";
+                lbl_error_email.ForeColor = Color.Red;
             }
-            else
-            {   
-                // Check đăng nhập 
-                if(busUsers.checkLogin(user) == true)
+            if (checkEmptyPass == true)
+            {
+                lbl_error_password.Text = "Chưa nhập mật khẩu";
+                lbl_error_password.ForeColor = Color.Red;
+            }
+
+            if(!checkEmptyEmail && !checkEmptyPass){
+                if (busUsers.checkLogin(user) == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     user = busUsers.getInfoUser(txt_email.Text.Trim(), txt_password.Text.Trim());
 
                     this.Hide();
                     frmManager manager = new frmManager(user);
-                    manager.FormClosed += new FormClosedEventHandler(manager_FormClosed);
+                    manager.FormClosed += new FormClosedEventHandler(manager_FormClosed);   // khi form quản lí close hoặc đăng xuất thì sẽ quay về form login
                     manager.Show();
                 }
                 else
@@ -90,10 +106,13 @@ namespace QLSach
                     MessageBox.Show("Email hoặc Password không đúng", "THẤT BẠI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+           
         }
         private void manager_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+            //this.Close();
+              this.Show();
+            
         }
 
         private void btn_close_Click(object sender, EventArgs e)

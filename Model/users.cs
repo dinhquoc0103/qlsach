@@ -16,7 +16,7 @@ namespace Model
         [Required(ErrorMessage = "Email không được để trống"), EmailAddress(ErrorMessage = "Email sai định dạng")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Password không được để trống"), StringLength(64, MinimumLength = 8, ErrorMessage = "Mật khẩu phải dài trên 8 kí tự")]
+        [Required(ErrorMessage = "Mật khẩu không được để trống"), RegularExpression(@"^(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,16}$", ErrorMessage = "Mật khẩu không thỏa mãn")]
         public string Password { get; set; }
 
         public int Status { get; set; }
