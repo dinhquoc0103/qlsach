@@ -44,18 +44,15 @@ namespace QLSach
             lbl_error_oldPassword.Text = "";
             lbl_error_newPassword.Text = "";
 
-            bool flag = true;
+            
 
             if (string.IsNullOrEmpty(txt_oldPassword.Text.Trim()))
             {
                 lbl_error_oldPassword.Text = "Chưa nhập mật khẩu cũ";
-                flag = false;
             }
             else if(txt_oldPassword.Text.Trim() != user.Password)
             {
                 lbl_error_oldPassword.Text = "Mật khẩu cũ không đúng";
-                flag = false;
-
             }
             lbl_error_oldPassword.ForeColor = Color.Red;
 
@@ -66,7 +63,7 @@ namespace QLSach
             }
             else
             {
-                string pattern = @"^(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,16}$";    // Biểu thức chính quy cho mật khẩu
+                string pattern = @"^(?=.*\d)(?=.*[A-Za-z_])(?=.*\W).{8,16}$";    // Biểu thức chính quy cho mật khẩu
                                                                              // Tạo đối tượng regex và truyền vào biểu thức chính quy + option bỏ qua hoa thường
                 Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
                 // Tạo đối match dùng regex.Match so khớp password với biểu thức chính quy

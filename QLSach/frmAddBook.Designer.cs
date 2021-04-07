@@ -172,6 +172,7 @@
             // 
             // cbx_category
             // 
+            this.cbx_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_category.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_category.FormattingEnabled = true;
             this.cbx_category.Items.AddRange(new object[] {
@@ -245,7 +246,7 @@
             // 
             this.lbl_error_bookName.AutoSize = true;
             this.lbl_error_bookName.Depth = 0;
-            this.lbl_error_bookName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_bookName.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_error_bookName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_error_bookName.Location = new System.Drawing.Point(181, 129);
             this.lbl_error_bookName.MouseState = MaterialSkin.MouseState.HOVER;
@@ -257,7 +258,7 @@
             // 
             this.lbl_error_price.AutoSize = true;
             this.lbl_error_price.Depth = 0;
-            this.lbl_error_price.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_price.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_error_price.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_error_price.Location = new System.Drawing.Point(180, 192);
             this.lbl_error_price.MouseState = MaterialSkin.MouseState.HOVER;
@@ -270,7 +271,7 @@
             // 
             this.lbl_error_category.AutoSize = true;
             this.lbl_error_category.Depth = 0;
-            this.lbl_error_category.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_category.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_error_category.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_error_category.Location = new System.Drawing.Point(179, 256);
             this.lbl_error_category.MouseState = MaterialSkin.MouseState.HOVER;
@@ -282,7 +283,7 @@
             // 
             this.lbl_error_author.AutoSize = true;
             this.lbl_error_author.Depth = 0;
-            this.lbl_error_author.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_author.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_error_author.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_error_author.Location = new System.Drawing.Point(179, 315);
             this.lbl_error_author.MouseState = MaterialSkin.MouseState.HOVER;
@@ -294,7 +295,7 @@
             // 
             this.lbl_error_publishingBy.AutoSize = true;
             this.lbl_error_publishingBy.Depth = 0;
-            this.lbl_error_publishingBy.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_publishingBy.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbl_error_publishingBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_error_publishingBy.Location = new System.Drawing.Point(180, 376);
             this.lbl_error_publishingBy.MouseState = MaterialSkin.MouseState.HOVER;

@@ -37,12 +37,17 @@ namespace DAL
                     b.PublishingBy = dr.GetString(5);
 
                     // Thêm đối tượng book vào danh sách book
-                    listBooks.Add(b);                    
+                    listBooks.Add(b);
                 }
+
             }
             catch (Exception error)
             {
                 throw error;
+            }
+            finally
+            {
+                this.closeConnect();
             }
 
             return listBooks;   // Trả về list books
@@ -172,6 +177,10 @@ namespace DAL
             catch (Exception error)
             {
                 throw error;
+            }
+            finally
+            {
+                this.closeConnect();
             }
 
             return listBooks;   // Trả về list books

@@ -46,6 +46,7 @@ namespace QLSach
         private void loadListBooks()
         {
             dgv_listBooks.DataSource = null;
+
             // Load list book lên dataGridView
             var listBooks = busBook.getListBooks();
             dgv_listBooks.DataSource = listBooks;

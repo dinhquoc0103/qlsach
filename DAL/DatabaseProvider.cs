@@ -105,6 +105,10 @@ namespace DAL
             {
                 throw error;
             }
+            finally
+            {
+                this.closeConnect();
+            }
         }
 
 

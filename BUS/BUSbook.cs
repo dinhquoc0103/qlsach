@@ -25,7 +25,6 @@ namespace BUS
         public List<book> getListBooks()
         {
             List<book> list =  dalBook.listBooks();
-            db.closeConnect();    // Đóng kết nối
             return list;
         }
 
@@ -45,7 +44,6 @@ namespace BUS
         public bool addBook(book b)
         {
             bool result = dalBook.insertRowBook(b);
-            db.closeConnect();
             return result;
         }
 
@@ -88,7 +86,6 @@ namespace BUS
         public List<book> getListBookSearch(string keywordSearch)
         {
             List<book> list = dalBook.listBookSearch(keywordSearch);
-            db.closeConnect();
             return list;
         }
     }

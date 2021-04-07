@@ -24,7 +24,6 @@ namespace BUS
         public bool checkLogin(users user)
         {
             bool result = dalUsers.checkExistRow(user, "login");
-            dalUsers.closeConnect();
             return result;
         }
 
