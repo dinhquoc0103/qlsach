@@ -58,10 +58,7 @@ namespace QLSach
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -94,7 +91,7 @@ namespace QLSach
             // Tạo đối tượng book
             book b = new book();
             b.BookCode = Functions.randomString(8); // Mã sách sẽ được tạo ngẫu nhiên bằng chuỗi với độ dài 8
-            b.BookName = txt_bookName.Text;
+            b.BookName = txt_bookName.Text.Replace("'", "''");
             b.Price = 0;
             if (!string.IsNullOrEmpty(txt_price.Text))
             {
@@ -108,9 +105,11 @@ namespace QLSach
                 }
                
             }
-            b.Category = cbx_category.Text;
-            b.Author = txt_author.Text;
-            b.PublishingBy = txt_publishingBy.Text;
+            b.Category = cbx_category.Text.Replace("'", "''");
+            b.Author = txt_author.Text.Replace("'", "''");
+            b.PublishingBy = txt_publishingBy.Text.Replace("'", "''");
+
+          
 
             // Để kiểm tra các dữ liệu phù hợp thiết lập bởi Attribute bên Model không, thì dùng lớp ValidationContext
             ValidationContext context = new ValidationContext(b);
@@ -172,5 +171,7 @@ namespace QLSach
         {
 
         }
+
+     
     }
 }

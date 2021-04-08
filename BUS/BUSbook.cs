@@ -24,7 +24,7 @@ namespace BUS
         // Nhận danh sách book trả về khi yêu cầu lớp DAL xử lí
         public List<book> getListBooks()
         {
-            List<book> list =  dalBook.listBooks();
+            List<book> list =  dalBook.listBookss(null);
             return list;
         }
 
@@ -76,17 +76,18 @@ namespace BUS
             return result;
         }
 
-        // lấy danh sách book theo kiểu dữ liệu trả về là dataTable
-        public DataTable getListBooksDT()
+        public List<string> getListPublishingBy()
         {
-            DataTable dt = dalBook.listBooksDT();
-            return dt;
+            var list = dalBook.listPublishingBy();
+            return list;
         }
 
-        public List<book> getListBookSearch(string keywordSearch)
+ 
+
+        public List<book> getListBooksByFilter(Dictionary<string,string> paramsFilter)
         {
-            List<book> list = dalBook.listBookSearch(keywordSearch);
-            return list;
+            var listBooks = dalBook.listBookss(paramsFilter);
+            return listBooks;
         }
     }
 }

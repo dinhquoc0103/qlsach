@@ -37,3 +37,5 @@ C:\Users\user\source\repos\qlisach\QLSach\obj\Release\GUI.csproj.CoreCompileInpu
 C:\Users\user\source\repos\qlisach\QLSach\obj\Release\GUI.csproj.CopyComplete
 C:\Users\user\source\repos\qlisach\QLSach\obj\Release\QLSach.exe
 C:\Users\user\source\repos\qlisach\QLSach\obj\Release\QLSach.pdb
+C:\Users\user\source\repos\qlisach\QLSach\obj\Release\QLSach.frmAccountInfo.resources
+C:\Users\user\source\repos\qlisach\QLSach\obj\Release\QLSach.frmChangePassword.resources

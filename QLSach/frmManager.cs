@@ -39,6 +39,16 @@ namespace QLSach
         private void frmManager_Load(object sender, EventArgs e)
         {
             toolStripMenuItem1.Text = this.user.FullName;
+            cbx_filter_category.SelectedItem = "~~ Chọn Thể Loại ~~";
+            cbx_filter_publishingBy.SelectedItem = "~~ Chọn Nhà Xuất Bản ~~";
+
+            // Load list Nhà xuất bản vào combobox
+            var listPublishingBy = busBook.getListPublishingBy();
+            foreach (string publishingBy in listPublishingBy)
+            {
+                cbx_filter_publishingBy.Items.Add(publishingBy);
+            }
+
 
             loadListBooks();
         }
@@ -125,24 +135,27 @@ namespace QLSach
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            Dictionary<string, string> paramsFilter = new Dictionary<string, string>();
+            paramsFilter.Add("filterSearch", txt_search.Text.Trim().Replace("'", "''"));
+            paramsFilter.Add("filterCategory", cbx_filter_category.Text.Trim());
+            paramsFilter.Add("filterPublishingBy", cbx_filter_publishingBy.Text.Trim());
+
             string keywordSearch = txt_search.Text.Trim();
             if (string.IsNullOrEmpty(keywordSearch))
             {
                 MessageBox.Show("Bạn chưa nhập từ khóa để tìm kiếm", "Chú Ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(keywordSearch.Length < 2)
-            {
-                MessageBox.Show("Từ khóa tìm kiếm phải từ 2 kí tự trở lên", "Chú Ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             else
             {
-                dgv_listBooks.DataSource = busBook.getListBookSearch(keywordSearch);
-            }      
+                dgv_listBooks.DataSource = busBook.getListBooksByFilter(paramsFilter);
+            }
         }
 
         private void btn_showAll_Click(object sender, EventArgs e)
         {
             txt_search.Clear();
+            cbx_filter_category.SelectedItem = "~~ Chọn Thể Loại ~~";
+            cbx_filter_publishingBy.SelectedItem = "~~ Chọn Nhà Xuất Bản ~~";
             dgv_listBooks.DataSource = busBook.getListBooks();
         }
 
@@ -177,6 +190,30 @@ namespace QLSach
         {
             frmChangePassword changePass = new frmChangePassword(user);
             changePass.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dictionary<string, string> paramsFilter = new Dictionary<string, string>();
+            paramsFilter.Add("filterSearch", txt_search.Text.Trim().Replace("'", "''"));
+            paramsFilter.Add("filterCategory", cbx_filter_category.Text.Trim());
+            paramsFilter.Add("filterPublishingBy", cbx_filter_publishingBy.Text.Trim());
+
+
+            var listBooks = busBook.getListBooksByFilter(paramsFilter);
+            dgv_listBooks.DataSource = listBooks;
+        }
+
+        private void cbx_filter_publishingBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dictionary<string, string> paramsFilter = new Dictionary<string, string>();
+            paramsFilter.Add("filterSearch", txt_search.Text.Trim().Replace("'", "''"));
+            paramsFilter.Add("filterCategory", cbx_filter_category.Text.Trim());
+            paramsFilter.Add("filterPublishingBy", cbx_filter_publishingBy.Text.Trim());
+
+
+            var listBooks = busBook.getListBooksByFilter(paramsFilter);
+            dgv_listBooks.DataSource = listBooks;
         }
     }
 }

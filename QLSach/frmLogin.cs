@@ -35,13 +35,6 @@ namespace QLSach
             this.Text = "ĐĂNG NHẬP";
         }
 
-        //private void btn_login_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();    // ẩn form đăng nhập
-        //    frmManager manager = new frmManager();
-        //    manager.FormClosed += new FormClosedEventHandler(manager_FormClosed);
-        //    manager.Show();
-        //}
 
         private void btn_login_Click_1(object sender, EventArgs e)
         {
@@ -51,30 +44,8 @@ namespace QLSach
 
             // Tạo đối tượng lấy giá trị từ textbox lưu vào các thuộc tính
             users user = new users();
-            user.Email = txt_email.Text.Trim();
-            user.Password = txt_password.Text.Trim();
-
-            //// Bắt đầu validate
-            //ValidationContext context = new ValidationContext(user);
-            //var validationResult = new List<ValidationResult>();
-
-            //bool valid = Validator.TryValidateObject(user, context, validationResult, true);
-
-            //// Nếu có lỗi
-            //if(valid == false)
-            //{
-            //    // Vòng lặp in lỗi lên lbl
-            //    foreach (ValidationResult r in validationResult)
-            //    {
-            //        // Tạo controlName bằng string
-            //        string controlName = "lbl_error_" + r.MemberNames.First();
-            //        // Tìm control thông qua key string và gán messError và thay đổi màu cho label error
-            //        this.Controls.Find(controlName, true)[0].Text = r.ErrorMessage;
-            //        this.Controls.Find(controlName, true)[0].ForeColor = Color.Red;
-            //    }
-            //}
-            //else
-            //{   
+            user.Email = txt_email.Text.Trim().Replace("'", "''");
+            user.Password = txt_password.Text.Trim().Replace("'", "''"); 
 
             bool checkEmptyEmail = string.IsNullOrEmpty(txt_email.Text.Trim());
             bool checkEmptyPass = string.IsNullOrEmpty(txt_password.Text.Trim());

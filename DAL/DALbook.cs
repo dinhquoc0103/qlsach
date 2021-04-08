@@ -10,54 +10,7 @@ namespace DAL
 {
     public class DALbook : DatabaseProvider
     {
-        // DatabaseProvider db = null;   // Tạo đối tượng db để sử dụng các hàm của DatabaseProvider.cs
-
-        /// <summary>
-        /// Lấy danh sách book
-        /// </summary>
-        /// <returns>trả về một list danh sách book (list đối tượng book)</returns>
-        public List<book> listBooks()
-        {
-            SqlDataReader dr = null;
-            List<book> listBooks = new List<book>();
-
-            try
-            {
-                dr = this.selectDataTable("book");
-                while (dr.Read())
-                {
-                    book b = new book();
-
-                    // Lấy giá trị từng cột từ SqlDataReader và chuyển thành kiểu dữ liệu tương ứng
-                    b.BookCode = dr.GetString(0);
-                    b.BookName = dr.GetString(1);
-                    b.Price = dr.GetInt32(2);
-                    b.Category = dr.GetString(3);
-                    b.Author = dr.GetString(4);
-                    b.PublishingBy = dr.GetString(5);
-
-                    // Thêm đối tượng book vào danh sách book
-                    listBooks.Add(b);
-                }
-
-            }
-            catch (Exception error)
-            {
-                throw error;
-            }
-            finally
-            {
-                this.closeConnect();
-            }
-
-            return listBooks;   // Trả về list books
-        }
-
-        /// <summary>
-        /// Thêm row book vào csdl
-        /// </summary>
-        /// <param name="b">tham số truyền vào là đối tượng book</param>
-        /// <returns>true nếu thành công hoặc false nếu fail</returns>
+       
         public bool insertRowBook(book b)
         {
             bool flag = true;
@@ -122,40 +75,62 @@ namespace DAL
             return flag;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public DataTable listBooksDT()
+
+
+
+        public List<string> listPublishingBy(string value = null, string options = null)
         {
-            DataTable dt = new DataTable();
+
+            SqlDataReader dr = null;
+            List<string> list = new List<string>();
+
             try
             {
-                dr = this.selectDataTable("book");
-                dt.Load(dr);
+                string sql = "SELECT DISTINCT(PublishingBy) FROM book";
+                dr = this.ExeCuteReader(sql);
+                while (dr.Read())
+                {
+                    list.Add(dr.GetString(0));
+                }
             }
             catch (Exception error)
             {
                 throw error;
             }
+            finally
+            {
+                this.closeConnect();
+            }
 
-            return dt;
+            return list;   // Trả về list books
         }
 
-
-        /// <summary>
-        /// list book truy vấn theo từ khóa search
-        /// </summary>
-        /// <param name="keywordSearch">từ khóa tìm kiếm</param>
-        /// <returns>Trả về một list book có name gần giống với từ khóa tìm kiếm</returns>
-        public List<book> listBookSearch(string keywordSearch)
+        public List<book> listBookss(Dictionary<string,string> paramsFilter = null)
         {
+            string strWhere = "";
+            if (paramsFilter != null)
+            {
+                strWhere = " WHERE BookCode IS NOT NULL";
+                if (!string.IsNullOrEmpty(paramsFilter["filterSearch"]))
+                {
+                    strWhere += " AND BookName LIKE N'%" + paramsFilter["filterSearch"] + "%'";
+                }
+                if (paramsFilter["filterCategory"] != "~~ Chọn Thể Loại ~~")
+                {
+                    strWhere += " AND Category = N'" + paramsFilter["filterCategory"] + "'";
+                }
+                if (paramsFilter["filterPublishingBy"] != "~~ Chọn Nhà Xuất Bản ~~")
+                {
+                    strWhere += " AND PublishingBy = N'" + paramsFilter["filterPublishingBy"] + "'";
+                }
+            }
+
             SqlDataReader dr = null;
             List<book> listBooks = new List<book>();
 
             try
             {
-                dr = this.selectDataTable("book", " WHERE BookName LIKE N'%" + keywordSearch + "%' OR BookName LIKE '%" + keywordSearch + "%'");
+                dr = this.selectDataTable("book", strWhere);
                 while (dr.Read())
                 {
                     book b = new book();

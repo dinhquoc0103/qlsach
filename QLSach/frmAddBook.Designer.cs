@@ -172,11 +172,9 @@
             // 
             // cbx_category
             // 
-            this.cbx_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_category.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_category.FormattingEnabled = true;
             this.cbx_category.Items.AddRange(new object[] {
-            "~ Chọn Thể Loại ~",
             "Bóng Đá",
             "Văn Học",
             "Kinh Tế",
@@ -186,7 +184,6 @@
             this.cbx_category.Name = "cbx_category";
             this.cbx_category.Size = new System.Drawing.Size(268, 27);
             this.cbx_category.TabIndex = 12;
-            this.cbx_category.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btn_save
             // 

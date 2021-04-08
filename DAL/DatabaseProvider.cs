@@ -111,7 +111,21 @@ namespace DAL
             }
         }
 
-
+        public SqlDataReader ExeCuteReader(string sql)
+        {
+            try
+            {
+                cmd = new SqlCommand(sql);
+                cmd.Connection = connect;
+                this.openConnect();
+                dr = cmd.ExecuteReader();
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            return dr;
+        }
 
     }
 }
